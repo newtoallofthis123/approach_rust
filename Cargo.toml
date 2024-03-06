@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "src/render"
+]
+resolver = "1"
+
+[workspace.lints.rust]
+non_snake_case = "allow"
