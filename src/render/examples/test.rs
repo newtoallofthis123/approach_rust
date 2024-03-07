@@ -1,32 +1,11 @@
-use render::node::Node;
+use render::{node::Node, xml::Xml};
 
 fn main(){
-    let node = Node {
-        content: Some("First, World! ".to_string()),
-        render_id: 0,
-        prerender: false,
-        nodes: vec![Node {
-            content: Some("Hello, World! ".to_string()),
-            render_id: 0,
-            prerender: false,
-            nodes: vec![Node {
-                content: Some("Wow, this is a nested node! ".to_string()),
-                render_id: 0,
-                prerender: false,
-                nodes: vec![]
-            }, Node {
-                content: Some("This is another nested node! ".to_string()),
-                render_id: 0,
-                prerender: false,
-                nodes: vec![]
-            }],
-        }, Node {
-            content: Some("The Matrix has you. ".to_string()),
-            render_id: 0,
-            prerender: false,
-            nodes: vec![]
-        }]
-    }; 
+    let mut node = Xml::new("div");
+    let another = Xml::new("p");
 
-    println!("{}", node);
+    node.setContent("Hello, World!");
+
+    node.appendChild(another);
+    println!("{}", node.render());
 }

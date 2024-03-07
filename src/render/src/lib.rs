@@ -3,6 +3,7 @@
 pub mod stream;
 pub mod container;
 pub mod node;
+pub mod xml;
 
 pub fn add(left: usize, right: usize) -> usize {
     left + right
